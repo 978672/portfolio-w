@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .resultStyle {
+        background-color: #000000;
+        color: #37cce8;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="application/javascript">
+      const fetchWeather = async (code) => {
+        try {
+          const WEATHER_FORECAST = `https://www.jma.go.jp/bosai/forecast/data/forecast/${code}.json`;
+          const res = await fetch(WEATHER_FORECAST);
+          const list = await res.json();
+          // const weathers = list
+          //   .filter((item) => !item.tempAverage)
+          //   .map((item) => item.timeSeries)
+          //   .map((item) => item.filter((b) => b.areas.some((s) => s.area.name === '東京地方')))
+          const weathers = list
+            .filter((item) => !item.tempAverage)
+            .map((item) => item.timeSeries)
+            .map((item) => item)[0]
+            .flatMap((item) => item.areas);
+          // .filter((b) => b.area.code === code)
+          const doc = document.getElementById("result");
+          doc.innerText = JSON.stringify(weathers, null, "\t");
+
+          // 1エリア　福岡
+          const areaName = weathers[0].area.name;
+          console.log(areaName);
+          let today = [];
+          today.push(weathers[0].weathers[0]);
+          today.push(weathers[0].winds[0]);
+          today.push(weathers[0].waves[0]);
+          let tommorrow = [];
+          tommorrow.push(weathers[0].weathers[1]);
+          tommorrow.push(weathers[0].winds[1]);
+          tommorrow.push(weathers[0].waves[1]);
+          let dayAfterT = [];
+          dayAfterT.push(weathers[0].weathers[2]);
+          dayAfterT.push(weathers[0].winds[2]);
+          dayAfterT.push(weathers[0].waves[2]);
+          area.textContent = areaName;
+          todayWeather.textContent = JSON.stringify(today);
+          tommorowWeather.textContent = JSON.stringify(tommorrow);
+          dayAfterTWeather.textContent = JSON.stringify(dayAfterT);
+        } catch (e) {
+          const doc = document.getElementById("errorCode");
+          doc.innerText = "その地域は存在しません";
+        }
+      };
+      fetchWeather("400000");
+    </script>
+    <h3 id="errorCode" style="color: red;"></h3>
+
+    <!-- area1 -->
+    <h2 style="color: blue;">福岡</h2>
+    <h2 id="area" style="color: red;"></h2>
+    <h2>今日</h2>
+    <p>天気・風・波</p>
+    <p id="todayWeather"></p>
+
+    <h2>明日</h2>
+    <p>天気・風・波</p>
+    <p id="tommorowWeather"></p>
+
+    <h2>明後日</h2>
+    <p>天気・風・波</p>
+    <p id="dayAfterTWeather"></p>
+
+    <pre id="result" class="resultStyle"></pre>
+    <h2><a href="http://localhost:3000/i/otenki.html">back</a></h2>
+    <h2><a href="http://localhost:3000/static/top.html">back to TOPPAGE</a></h2>
+  </body>
+</html>

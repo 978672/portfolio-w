@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .resultStyle {
+        background-color: #000000;
+        color: #37cce8;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="application/javascript">
+      const fetchWeather = async (code) => {
+        try {
+          const WEATHER_FORECAST = `https://www.jma.go.jp/bosai/forecast/data/forecast/${code}.json`;
+          const res = await fetch(WEATHER_FORECAST);
+          const list = await res.json();
+          // const weathers = list
+          //   .filter((item) => !item.tempAverage)
+          //   .map((item) => item.timeSeries)
+          //   .map((item) => item.filter((b) => b.areas.some((s) => s.area.name === '東京地方')))
+          const weathers = list
+            .filter((item) => !item.tempAverage)
+            .map((item) => item.timeSeries)
+            .map((item) => item)[0]
+            .flatMap((item) => item.areas);
+          // .filter((b) => b.area.code === code)
+          const doc = document.getElementById("result");
+          doc.innerText = JSON.stringify(weathers, null, "\t");
+        } catch (e) {
+          const doc = document.getElementById("errorCode");
+          doc.innerText = "その地域は存在しません";
+        }
+      };
+      fetchWeather("470000");
+    </script>
+    <h2 style="color: blue;">沖縄</h2>
+    <h3 id="errorCode" style="color: red;"></h3>
+    <pre id="result" class="resultStyle"></pre>
+    <h2><a href="http://localhost:3000/i/otenki.html">back</a></h2>
+    <h2><a href="http://localhost:3000/static/top.html">back to TOPPAGE</a></h2>
+  </body>
+</html>

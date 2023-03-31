@@ -1,0 +1,227 @@
+body {
+  box-sizing: border-box;
+  max-width: 1500px;
+  margin: 0 auto;
+  background-color: #b1cdd9;
+}
+
+.header {
+  /* font-family: 'Rubik Mono One', sans-serif; */
+  width: 100%;
+  /* height: 70px; */
+  background-color: #37cce8;
+  /* background-color: #9FCAE4; */
+
+  /* background-color: rgba(255, 255, 255, 0.3); */
+  border-top: 3px solid #fffcfc;
+  border-bottom: 3px solid #fffcfc;
+  /* border-top: 3px solid #3A5BBF;
+  border-bottom: 3px solid #3A5BBF; */
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  font-weight: 1000;
+  font-family: "Lato", sans-serif;
+}
+
+/* .header-logo {
+  text-align: center;
+  padding: 15px 45px;
+  font-size: 60px;
+} */
+
+.wrapper {
+  /* background-color: #aac5d0; */
+  background-color: #b4c9dd;
+}
+
+.title {
+  /* background-color: #B3C9DC; */
+  padding: 240px 0px 240px 0px;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* vertical-align : middle; */
+}
+
+.title-items {
+  background-color: #d1e0e7;
+  color: #3a5bbf;
+  /* color: #fffcfc; */
+  width: 70%;
+  /* justify-content: center; */
+  text-align: center;
+  /* margin: 30px 100px; */
+  border: solid 3px #3a5bbf;
+
+  /* -webkit-text-fill-color: transparent;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color: #FFFCFC;
+	text-shadow: 4px 0px #37CCE8 */
+}
+
+.h2nomal {
+  font-style: italic;
+  font-size: 45px;
+  margin: 10px 0;
+}
+
+.fuchidori1 {
+  /* color :#3A5BBF; */
+  font-size: 88px;
+  /* font-family: 'Rubik Mono One', sans-serif; */
+  font-weight: bold;
+  padding: 5px;
+  margin: 30px 0;
+  /* 文字本体の色と淵 transoarent大事 */
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: #3a5bbf;
+  /* -webkit-text-stroke-color: rgb(255,252,252,0.8); */
+
+  /* 影を調整 */
+  /* 最初に書くと上に乗るから順番要注意 */
+  /* 0ずれで本体の色に */
+  text-shadow: 5px 0px 1px #37cce8, 0px 0px #fffcfc, -4px 0px #df7358;
+
+  /* text-shadow: 4px 0px 1px #cd5, -3px 0px 2px red;
+	-webkit-text-stroke: 1px #425491;
+	padding: 0 0 10px; */
+
+  font-family: "Lato", sans-serif;
+  /* 文字間隔でダサさちょい軽減 */
+  letter-spacing: 0.02em;
+}
+
+.fuchidori2 {
+  font-family: "Lato", sans-serif;
+  font-style: italic;
+  font-size: 55px;
+  margin: 10px 0;
+
+  /* -webkit-text-fill-color: #335DDB;
+	-webkit-text-stroke-width: 1px;
+	-webkit-text-stroke-color:#FFFCFC;
+	/* -webkit-text-stroke-color: rgb(255,252,252,0.8); */
+
+  text-shadow: 6px 0px #37cce8;
+  font-family: "Lato", sans-serif;
+}
+
+.fuchidori3 {
+  /* color :#37CCE8; */
+  font-size: 60px;
+  text-align: center;
+  padding: 5px;
+  margin: 0px;
+
+  -webkit-text-fill-color: #335ddb;
+  -webkit-text-stroke-width: 1.5px;
+  /* -webkit-text-stroke-color: rgb(255, 252, 252, 0.6); */
+  -webkit-text-stroke-color: rgb(255, 252, 252, 0.8);
+
+  text-shadow: 4px 0px #37cce8;
+  font-family: "Lato", sans-serif;
+}
+
+.about {
+  /* background-color: #E2F2F3; */
+  /* background-color: #D9E8ED; */
+  /* background-color: #D6D8E6; */
+  margin-bottom: 0;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  color: #fffcfc;
+  width: 100%;
+  height: auto;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-wrapper {
+  width: 85%;
+}
+
+.works {
+  /* background-color: #B3C9DC; */
+  width: 100%;
+  height: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 120px 0px;
+}
+
+.work-items-wrapper {
+  width: 85%;
+  color: #8266b7;
+}
+
+.work-title {
+  color: #335ddb;
+  /* margin: 5px; */
+  /* padding: 20px 40px; */
+  text-align: left;
+  justify-content: center;
+}
+
+.portfolio-items {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.work-items-description1 {
+  width: 30%;
+  margin: 10px 5px;
+  padding: 20px 0px;
+  border: solid 2px #335ddb;
+  background-color: #e2cbd7;
+  /* background-color: #FFFCFC; */
+
+  color: #335ddb;
+}
+
+.work-items-description {
+  width: 30%;
+  margin: 10px 5px;
+  padding: 20px 0px;
+  border: solid 2px #c0c4cf;
+  background-color: #baacb3;
+  /* background-color: #FFFCFC; */
+
+  color: #335ddb;
+}
+
+.contact {
+  background-color: #dcaea2;
+  color: #fffcfc;
+  color: #335ddb;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 30px;
+}
+
+.detail {
+  width: 80%;
+  margin: 0px;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.a {
+  text-decoration-line: none;
+}
